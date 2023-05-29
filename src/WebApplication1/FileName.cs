@@ -2,8 +2,7 @@ using Microsoft.Extensions.Options;
 
 namespace WebApplication1;
 
-public class OptionMap<T> 
-    where T : class
+public class OptionMap<T> where T : class
 {
     public OptionMap(IOptions<Dictionary<string, T>> option)
     {
@@ -12,5 +11,5 @@ public class OptionMap<T>
 
     IOptions<Dictionary<string, T>> Option { get; }
 
-    public T GetValue(AppName key) => Option.Value[Enum.GetName(key)];
+    public T GetValue<TK>(TK key) where TK : struct, Enum => Option.Value[Enum.GetName(key)];
 }
