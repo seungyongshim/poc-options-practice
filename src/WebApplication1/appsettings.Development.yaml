@@ -1,0 +1,18 @@
+Logging: &Logging
+    LogLevel: 
+      Default: "Information"
+      Microsoft.AspNetCore: "Warning"
+
+AllowedHosts: "*" 
+
+Database: &Database
+  DatabaseRead: "A1111" 
+  DatabaseWrite: B2222
+
+App2:
+  <<: *Database
+  <<: *Logging
+
+App1:
+  DatabaseRead: *DatabaseRead
+  DatabaseWrite: *DatabaseWrite

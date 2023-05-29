@@ -1,0 +1,13 @@
+DatabaseRead: &DatabaseRead
+  Uri: A1111
+
+DatabaseWrite: &DatabaseWrite
+  Uri: B2222
+
+App2:
+  DatabaseRead: *DatabaseRead
+  DatabaseWrite: *DatabaseWrite
+
+App1:
+  DatabaseRead: *DatabaseRead
+  DatabaseWrite: *DatabaseWrite
